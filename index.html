@@ -15,14 +15,20 @@
     <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
     <!--Google Font-->
     <link href="https://fonts.googleapis.com/css?family=Abel|Amatic+SC|Lobster|Ruda" rel="stylesheet">
+    <!--moment link-->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <!-- firebase auth -->
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+    <!-- firebase auth -->
     <title>Eat-In</title>
 </head>
 
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
                 <div class="jumbotron">
                     <div class="container">
                         <h1>Eat-In</h1>
@@ -30,11 +36,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-2"></div>
+            <div class="col-md-1"></div>
         </div>
         <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
+            <div class="col-md-1"></div>
+            <div class="col-md-6">
                 <div class="ingredient-section">
                     <h3>Select Your Ingredients</h3>
                     <div id="ingredientButton">
@@ -43,80 +49,55 @@
                         <input type="text" placeholder="" id="addEntry">
                         <input id="add" type="submit" value="Add Ingredient">
                     </form>
-                    <!-- adding additional section -->
-                    <h3>Your Selected Ingredients</h3>
-                    <div id="selectedIngredients">
-                    <!-- show user's selected ingredients here -->
-                    </div>
-                    <!-- search button to run search on array -->
-                    <button id=search>Search Recipes</button>
                 </div>
             </div>
-            <div class="col-md-2"></div>
+            <div class="col-md-4">
+                <div class="selected-ingredients">
+                    <h3>Current Ingredients</h3>
+                    <div class="white-background">
+                        <div id="ingredientList">
+
+                        </div>
+                    </div>
+                    <button type="button" href="#" class="find-button" value="data-name">Find Recipe</button>
+                    <button type="button" href="#" class="clear-button">Clear</button>
+                </div>
+
+            </div>
+            <div class="col-md-1"></div>
         </div>
         <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
                 <div class="pre-recipes">
                     <h3>Recipe List</h3>
-                    <table class="table table-bordered table-light">
+                    <table class="table table-bordered table-light" id="recipeTable">
                         <thead>
                             <tr>
                                 <th scope="col-sm-4">Meal</th>
-                                <th scope="col-sm-4">Recipe Name</th>
-                                <th scope="col-sm-4">Difficulty</th>
+                                <th scope="col-sm-4">Recipe</th>
+                                <th scope="col-sm-4">Minutes</th>
+                                <th scope="col-sm-4">Get Recipe</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>
-                                    <img src="assets/images/foodplaceholder.jpg" alt="food image" class="food-image">
-                                </td>
-                                <td>Bacon Lettuce Tomato Sandwhich</td>
-                                <td>Easy</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="assets/images/foodplaceholder.jpg" alt="food image" class="food-image">
-                                </td>
-                                <td>Bacon Lettuce Tomato Sandwhich</td>
-                                <td>Easy</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="assets/images/foodplaceholder.jpg" alt="food image" class="food-image">
-                                </td>
-                                <td>Bacon Lettuce Tomato Sandwhich</td>
-                                <td>Easy</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="assets/images/foodplaceholder.jpg" alt="food image" class="food-image">
-                                </td>
-                                <td>Bacon Lettuce Tomato Sandwhich</td>
-                                <td>Easy</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="assets/images/foodplaceholder.jpg" alt="food image" class="food-image">
-                                </td>
-                                <td>Bacon Lettuce Tomato Sandwhich</td>
-                                <td>Easy</td>
+
                             </tr>
                         </tbody>
                     </table>
-                    <div id="preRecipes">
-                    </div>
+                    <!-- <div id="preRecipes"> -->
                 </div>
             </div>
-            <div class="col-md-2"></div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    </div>
+    <div class="containter">
+        <div class="footer">
+            <p class="footer-text">Copyright &copy; 2018 Eat-In</p>
         </div>
     </div>
-    <!-- <div class="containter">
-            <div class="footer">
-                    <p>Copyright &copy; 2018 Eat-In</p>
-            </footer> -->
-
     <!-- Optional JavaScript -->
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -125,8 +106,8 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
         crossorigin="anonymous"></script>
-    <!-- <script src="./assets/js/app.js"></script> -->
-    <script src="assets/js/app.js"></script>
+    <script src="assets/javascript/app.js"></script>
+    <script src="assets/javascript/logic.js"></script>
 </body>
 
 </html>
